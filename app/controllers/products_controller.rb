@@ -1,6 +1,13 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
+  #POST /search
+  def search
+    @filtered_products = Product.search(params['query'])
+
+    render json: @filtered_products
+  end
+
   # GET /products
   def index
     @products = Product.all
