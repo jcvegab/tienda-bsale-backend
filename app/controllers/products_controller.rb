@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :update, :destroy]
+  before_action :set_product, only: %i[show update destroy]
 
-  #POST /search
+  # POST /search
   def search
     @filtered_products = Product.search(params['query'])
 
@@ -10,7 +10,11 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.all
+    @products = if params[:category_id]
+                  Category.find(params[:category_id]).products
+                else
+                  Product.all
+                end
 
     render json: @products
   end
@@ -46,13 +50,14 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def product_params
-      params.fetch(:product, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def product_params
+    params.fetch(:product, {})
+  end
 end
