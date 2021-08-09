@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   # GET /products
   def index
     @products = if params[:category_id]
-                  Category.find(params[:category_id]).products
+                  Product.where(['category = ?', params[:category_id]])
                 else
                   Product.all
                 end
