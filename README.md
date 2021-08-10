@@ -1,5 +1,3 @@
-# README
-
 # Tienda Online - Bsale | Backend
 
 ## Documentación
