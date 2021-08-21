@@ -13,25 +13,8 @@ ocultos mediante el uso de variables de entorno tanto para el desarrollo local y
 ### Requisitos:
 - Ruby 3.0.1
 
-### Rutas del proyecto
-Se uso el estándar RESTful para el desarrollo de la API del proyecto, las rutas generadas son las siguientes:
-
-POST /search
-Recibe un parámetro de búsqueda (query) para ser consultado en la BBDD y envia los productos con coincidencias.
-
-* Productos
-1. GET /products
-   Lista todos los productos de la BBDD.
-3. GET /products/:id
-   Muestra un producto según el :id especificado en la ruta.
-
-* Categorias
-1. GET /categories
-   Lista todos las categorías de la BBDD.
-3. GET /categories/:id
-   Muestra una categoría según el :id especificado en la ruta
-5. GET /categories/:id/products
-   Muestra los productos que pertenezcan a la categoría identificada con el ID (:id) 
+### Documentación de la API
+Puedes ver la documentación de la API aquí: https://documenter.getpostman.com/view/17164604/TzzDHuDE
 
 ### Despligue del proyecto:
 Puedes revisar el proyecto aquí: http://tienda-bsale-backend.herokuapp.com/
